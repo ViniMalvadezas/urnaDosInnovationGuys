@@ -260,7 +260,7 @@
     partidos.push(biel), partidos.push(vitor), partidos.push(vinicius), partidos.push(matheus), partidos.push(guilherme), partidos.push(luis), partidos.push(nulo)
 
     function preencheDados() {
-        if (JSON.parse(localStorage.getItem("partidos")) != null) {
+        if (JSON.parse(localStorage.getItem("partidos")) == null) {
             localStorage.setItem("partidos", JSON.stringify(partidos))
         }
 

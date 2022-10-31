@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title> Ba meu, política trinovacional </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        .casa {
+            position: relative;
+            width: 90px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.80);
+            color: white;
+            border-style: solid;
+            border-color: white;
+            font-size: 30px;
+        }
+
+        .casaBranco {
+            position: relative;
+            width: 90px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: white;
+            border-color: white;
+            border-style: solid;
+        }
+
+        .casaCorrige {
+            position: relative;
+            width: 90px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgba(255, 0, 0, 0.80);
+            border-color: white;
+            border-style: solid;
+        }
+
+        .casaConfirma {
+            position: relative;
+            width: 90px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgba(10, 155, 10, 0.80);
+            border-color: white;
+            border-style: solid;
+        }
+
+        .casa:hover {
+            bottom: -1px;
+        }
+
+        .casaBranco:hover {
+            bottom: -1px;
+        }
+
+        .casaCorrige:hover {
+            bottom: -1px;
+        }
+
+        .casaConfirma:hover {
+            bottom: -1px;
+        }
+
+        .casona {
+            width: 730px;
+            height: 580px;
+            border-width: 15px;
+            border-radius: 10px;
+            border: 7px solid black;
+        }
+
+        .input {
+            color: white;
+            text-align: center;
+            width: 250px;
+            height: 40px;
+            border-radius: 10px;
+            border-style: solid;
+            border-color: rgb(255, 255, 255);
+            font-size: 20px;
+            background-color: rgb(75, 75, 75);
+        }
+
+        .input::placeholder {
+            color: rgba(255, 255, 255, 0.493);
+        }
+
+        .input2 {
+            color: white;
+            text-align: center;
+            width: 200px;
+            height: 35px;
+            border-radius: 10px;
+            border-style: solid;
+            border-color: rgb(255, 255, 255);
+            font-size: 20px;
+            background-color: rgb(75, 75, 75);
+        }
+    </style>
+</head>
+
+
+
+<body style="background-color: rgb(82, 82, 82);" onload="preencheDados()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7">
+                <br>
+                <img onclick="trocaPagina()" class="casona" id="loop" src="bagulinhos/bielmalvadezas.png" alt="error404">
+            </div>
+            <div class="col-md-5">
+                <center>
+                    <br>
+                    <h1 style="color: white;">
+                        🤗 Urna dos guri 🤗
+                    </h1>
+                    <br>
+                    <input maxlength="11" class="input" id="input" type="text" placeholder="Digite seu CPF!">
+                    <h3></h3>
+                    <button class="input2" id="input2" type="text" placeholder=""></button>
+                    <br> <br>
+                    <table style="text-align: center;" class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <button id="00" onclick="bot1()" class="casa">1</button>
+                                </td>
+                                <td>
+                                    <button id="01" onclick="bot2()" class="casa">2</button>
+                                </td>
+                                <td>
+                                    <button id="02" onclick="bot3()" class="casa">3</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="10" onclick="bot4()" class="casa">4</button>
+                                </td>
+                                <td>
+                                    <button id="11" onclick="bot5()" class="casa">5</button>
+                                </td>
+                                <td>
+                                    <button id="12" onclick="bot6()" class="casa">6</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="20" onclick="bot7()" class="casa">7</button>
+                                </td>
+                                <td>
+                                    <button id="21" onclick="bot8()" class="casa">8</button>
+                                </td>
+                                <td>
+                                    <button id="22" onclick="bot9()" class="casa">9</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <button id="21" onclick="bot0()" class="casa">0</button>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="20" onclick="botBranco()" class="casaBranco">Branco</button>
+                                </td>
+                                <td>
+                                    <button id="21" onclick="botCorrige()" class="casaCorrige">Corrige</button> <br>
+                                    <br>
+                                </td>
+                                <td>
+                                    <button id="22" onclick="botConfirma()" class="casaConfirma">Confirma</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                </center>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    let partidos = []
+    let cpfs = []
+
+    let matheus = {
+        nome: "Matheus",
+        cargo: "presidente",
+        partido: "45",
+        votos: 0,
+        imagem: "bagulinhos/matheusmalvadezas.png",
+        imagem2: "matheusmalvadezas.png"
+    }
+
+    let vinicius = {
+        nome: "Vinicius",
+        cargo: "presidente",
+        partido: "17",
+        votos: 0,
+        imagem: "bagulinhos/viniciusmalvadezas.png",
+        imagem2: "viniciusmalvadezas.png"
+    }
+
+    let luis = {
+        nome: "Luis",
+        cargo: "presidente",
+        partido: "23",
+        votos: 0,
+        imagem: "bagulinhos/luismalvadezas.png",
+        imagem2: "luismalvadezas.png"    
+    }
+
+    let guilherme = {
+        nome: "Guilherme",
+        cargo: "presidente",
+        partido: "69",
+        votos: 0,
+        imagem: "bagulinhos/guilhermemalvadezas.png",
+        imagem2: "guilhermemalvadezas.png"
+    }
+
+    let vitor = {
+        nome: "Vitor",
+        cargo: "presidente",
+        partido: "24",
+        votos: 0,
+        imagem: "bagulinhos/vitomalvadezas.png",
+        imagem2: "vitomalvadezas.png"
+    }
+
+    let biel = {
+        nome: "Gabriel",
+        cargo: "tenenteBombado",
+        partido: "99",
+        votos: 0,
+        imagem: "bagulinhos/bielmalvadezas.png",
+        imagem2: "bielmalvadezas.png"
+    }
+
+    let nulo = {
+        votosNulos: 0,
+        imagem: "bagulinhos/nulo.png",
+        imagem2: "nulo.png"
+    }
+
+    partidos.push(biel), partidos.push(vitor), partidos.push(vinicius), partidos.push(matheus), partidos.push(guilherme), partidos.push(luis), partidos.push(nulo)
+
+    function preencheDados() {
+        if (JSON.parse(localStorage.getItem("partidos")) != null) {
+            localStorage.setItem("partidos", JSON.stringify(partidos))
+        }
+
+        loopVitor()
+    }
+
+    function bot1() {
+        document.getElementById("input2").innerHTML += "1"
+    }
+    function bot2() {
+        document.getElementById("input2").innerHTML += "2"
+    }
+    function bot3() {
+        document.getElementById("input2").innerHTML += "3"
+    }
+    function bot4() {
+        document.getElementById("input2").innerHTML += "4"
+    }
+    function bot5() {
+        document.getElementById("input2").innerHTML += "5"
+    }
+    function bot6() {
+        document.getElementById("input2").innerHTML += "6"
+    }
+    function bot7() {
+        document.getElementById("input2").innerHTML += "7"
+    }
+    function bot8() {
+        document.getElementById("input2").innerHTML += "8"
+    }
+    function bot9() {
+        document.getElementById("input2").innerHTML += "9"
+    }
+    function bot0() {
+        document.getElementById("input2").innerHTML += "0"
+    }
+    function botBranco() {
+        var convidados = []
+        var cpf = document.getElementById("input").value
+        var cpff = cpf.split('')
+
+        if (JSON.parse(localStorage.getItem("partidos")) != null) {
+            convidados = JSON.parse(localStorage.getItem("partidos"))
+        }
+
+        if (cpf == "") {
+            alert("Digite seu CPF!")
+        }
+        else {
+            if (cpff.length < 11) {
+                alert("Digite seu CPF inteiro!")
+            }
+            else {
+                if (!verificaCpf(cpf)) {
+                    cpfs.push(cpf)
+                    convidados.sort(function (a, b) {
+                        if (a.votos > b.votos) {
+                            return -1
+                        }
+                        else if (a.votos < b.votos) {
+                            return 1
+                        }
+                        return 0
+                    })
+                    convidados[0].votos++
+
+                    alert(convidados[0].nome + " recebeu seu voto!")
+
+                    localStorage.setItem("partidos", JSON.stringify(convidados))
+                }
+                else {
+                    alert("Este CPF já votou!")
+                }
+            }
+        }
+    }
+    function botCorrige() {
+        document.getElementById("input2").innerHTML = ""
+    }
+
+    function botConfirma() {
+
+        var cpf = document.getElementById("input").value
+        var voto = document.getElementById("input2").innerHTML
+        var cpff = cpf.split('')
+
+        if (JSON.parse(localStorage.getItem("cpfsCadastrados")) != null) {
+            cpfs = JSON.parse(localStorage.getItem("cpfsCadastrados"))
+        }
+
+        if (cpf == "") {
+            alert("Digite seu CPF!")
+        }
+        else {
+            if (cpff.length < 11) {
+                alert("Digite seu CPF inteiro!")
+            }
+            else {
+                if (voto != "") {
+                    if (!verificaCpf(cpf)) {
+                        if (voto == 45) {
+                            cpfs.push(cpf)
+                            matheus.votos = matheus.votos + 1
+                            localStorage.setItem("cpfsCadastrados", JSON.stringify(cpfs))
+                            atualizaLS()
+                            // matheus
+                            alert("Matheus recebeu seu voto!")
+                        }
+                        else if (voto == 24) {
+                            cpfs.push(cpf)
+                            vitor.votos = vitor.votos + 1
+                            localStorage.setItem("cpfsCadastrados", JSON.stringify(cpfs))
+                            atualizaLS()
+                            // vitor
+                            alert("Vitor recebeu seu voto!")
+                        }
+                        else if (voto == 69) {
+                            cpfs.push(cpf)
+                            guilherme.votos = guilherme.votos + 1
+                            localStorage.setItem("cpfsCadastrados", JSON.stringify(cpfs))
+                            atualizaLS()
+                            // guilherme
+                            alert("Guilherme recebeu seu voto!")
+                        }
+                        else if (voto == 17) {
+                            cpfs.push(cpf)
+                            vinicius.votos = vinicius.votos + 1
+                            localStorage.setItem("cpfsCadastrados", JSON.stringify(cpfs))
+                            atualizaLS()
+                            // vinicius
+                            alert("Vinicius recebeu seu voto!")
+                        }
+                        else if (voto == 23) {
+                            cpfs.push(cpf)
+                            luis.votos = luis.votos + 1
+                            localStorage.setItem("cpfsCadastrados", JSON.stringify(cpfs))
+                            atualizaLS()
+                            // luis
+                            alert("Luis recebeu seu voto!")
+                        }
+                        else if (voto == 99) {
+                            cpfs.push(cpf)
+                            biel.votos = biel.votos + 1
+                            localStorage.setItem("cpfsCadastrados", JSON.stringify(cpfs))
+                            atualizaLS()
+                            // biel
+                            alert("Biel recebeu seu voto!")
+                        }
+                        else {
+                            alert("Voto anulado!")
+                            nulo.votosNulos = nulo.votosNulos + 1
+                            atualizaLS()
+                        }
+                    }
+                    else {
+                        alert("Este CPF já votou!")
+                    }
+                }
+                else {
+                    alert("Escolha um partido!")
+                }
+            }
+        }
+    }
+
+    function verificaCpf(cpfDigitado) {
+        for (var cpf of cpfs) {
+            if (cpf == cpfDigitado) {
+                return true
+            }
+        }
+        return false
+    }
+
+    function loopVitor() {
+
+        setTimeout(function () {
+            document.getElementById("loop").src = vitor.imagem
+            loopGui()
+        }, 5000)
+    }
+
+    function loopGui() {
+        setTimeout(function () {
+            document.getElementById("loop").src = guilherme.imagem
+            loopLuis()
+        }, 5000)
+    }
+
+    function loopLuis() {
+        setTimeout(function () {
+            document.getElementById("loop").src = luis.imagem
+            loopMat()
+        }, 5000)
+    }
+
+    function loopMat() {
+        setTimeout(function () {
+            document.getElementById("loop").src = matheus.imagem
+            loopVini()
+        }, 5000)
+    }
+
+     function loopVini() {
+        setTimeout(function () {
+            document.getElementById("loop").src = vinicius.imagem
+            loopBiel()
+        }, 5000)
+    } 
+
+    function loopBiel() {
+        setTimeout(function () {
+            document.getElementById("loop").src = biel.imagem
+            loopVitor( )
+        }, 5000)
+    }
+
+    function atualizaLS() {
+
+        localStorage.setItem("partidos", JSON.stringify(partidos))
+
+    }
+
+    function trocaPagina() {
+        window.location.href = ("bagulinhos/vencedores.html")
+    }
+
+</script>
